@@ -8,12 +8,21 @@ public static class Arrays
     /// <returns>array of doubles that are the multiples of the supplied number</returns>
     public static double[] MultiplesOf(double number, int length)
     {
-        // TODO Problem 1 Start
-        // Remember: Using comments in your program, write down your process for solving this problem
-        // step by step before you write the code. The plan should be clear enough that it could
-        // be implemented by another person.
+        // Problem Solving Plan:
+        // 1. Create a new array of doubles using the provided length.
+        // 2. Use a loop to go through each index in the array.
+        // 3. Multiply the starting number by the current position plus 1.
+        // 4. Store each multiple in the array.
+        // 5. Return the completed array of multiples.
 
-        return []; // replace this return statement with your own
+        double[] multiples = new double[length];
+
+        for (int i = 0; i < length; i++)
+        {
+            multiples[i] = number * (i + 1);
+        }
+
+        return multiples;
     }
 
     /// <summary>
@@ -25,9 +34,19 @@ public static class Arrays
     /// </summary>
     public static void RotateListRight(List<int> data, int amount)
     {
-        // TODO Problem 2 Start
-        // Remember: Using comments in your program, write down your process for solving this problem
-        // step by step before you write the code. The plan should be clear enough that it could
-        // be implemented by another person.
+        // Problem Solving Plan:
+        // 1. Determine where the rotation should begin by subtracting amount from the list size.
+        // 2. Copy the items from that position to the end of the list into a temporary list.
+        // 3. Remove those items from the original list.
+        // 4. Insert the temporary list at the beginning of the original list.
+        // 5. The list is now rotated to the right by the requested amount.
+
+        int startIndex = data.Count - amount;
+
+        List<int> rotatedSection = data.GetRange(startIndex, amount);
+
+        data.RemoveRange(startIndex, amount);
+
+        data.InsertRange(0, rotatedSection);
     }
 }
